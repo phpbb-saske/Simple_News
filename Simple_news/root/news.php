@@ -27,7 +27,7 @@ $user->setup('mods/news');
     $forum_id = array(2, 5);
     $forum_id_where = create_where_clauses($forum_id, 'forum');
 
-    $topic_id = array();
+    $topic_id = array(2);
     $topic_id_where = create_where_clauses($topic_id, 'topic');
 	
 /* create_where_clauses( int[] gen_id, String type )
@@ -143,8 +143,10 @@ $posts_ary = array(
          $topic_author       = get_username_string('full', $posts_row['topic_poster'], $posts_row['topic_first_poster_name'], $posts_row['topic_first_poster_colour']);
          $topic_date       = $user->format_date($posts_row['topic_time']);
          $topic_link       = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $posts_row['forum_id'] . '&amp;t=' . $posts_row['topic_id']);
-		 $topic_link_comment	= append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $posts_row['forum_id'] . '&amp;t=' . $posts_row['topic_id'] . '&amp;t=' . $posts_row['post_id']);
+		 $topic_reply		= $posts_row['topic_replies'];
+		 $post_link 		= append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $posts_row['forum_id'] . '&amp;t=' . $posts_row['topic_id'] . '#p' . $posts_row['topic_first_post_id']);
 
+		 
          $post_text = nl2br($posts_row['post_text']);
 
          $bbcode = new bbcode(base64_encode($bbcode_bitfield));         
@@ -166,6 +168,8 @@ $posts_ary = array(
 		 'S_RANK_TITLE' 	=> $rank_title,
 		 'S_RANK_IMG' 		=> $rank_image,
 		 'S_RANK_IMG_SRC'	=> $rank_image_src,
+		 'TOPIC_REPLY'		=> $topic_reply,
+		 'POST_LINK'		=> $post_link,
          ));
       }
 	  
