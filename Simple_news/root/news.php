@@ -151,15 +151,33 @@ $posts_ary = array(
 
          $post_text = smiley_text($post_text);
 
+		// Ranks Function
+		$rank_title = $rank_image = $rank_image_src = '';
+		get_user_rank($user->data['user_rank'], $user->data['user_posts'], $rank_title, $rank_image, $rank_image_src);
+
          $template->assign_block_vars('announcements', array(
-         'TOPIC_TITLE'       => censor_text($topic_title),
-         'TOPIC_AUTHOR'       => $topic_author,
+         'TOPIC_TITLE'      => censor_text($topic_title),
+         'TOPIC_AUTHOR'     => $topic_author,
          'TOPIC_DATE'       => $topic_date,
          'TOPIC_LINK'       => $topic_link,
-         'POST_TEXT'         => censor_text($post_text),
+         'POST_TEXT'        => censor_text($post_text),
+		 'S_RANK_TITLE' 	=> $rank_title,
+		 'S_RANK_IMG' 		=> $rank_image,
+		 'S_RANK_IMG_SRC'	=> $rank_image_src,
          ));
       }
 	  
+        if ($user->data['user_avatar'])
+        {
+            if (!function_exists('get_user_avatar'))
+            {
+                include $phpbb_root_path . 'includes/functions_display.' . $phpEx;
+            }
+                $template->assign_vars(array(
+         'S_TOPIC_AVATAR'           => ($user->data['user_avatar'] != '') ? true : false,
+         'TOPIC_AVATAR'         => get_user_avatar($user->data['user_avatar'], $user->data['user_avatar_type'], $user->data['user_avatar_width'], $user->data['user_avatar_height']),
+				));
+        }  
 page_header('{L_NEWS_TITLE}');
 
     $template->set_filenames(array(

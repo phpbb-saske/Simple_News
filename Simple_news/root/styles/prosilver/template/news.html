@@ -20,10 +20,13 @@
 				<!-- ENDIF -->
 				<br>
 				<dt style="margin-left:70px;"><!-- IF not announcements.TOPIC_AUTHOR --><strong>{announcements.TOPIC_AUTHOR}</strong><!-- ELSE -->{announcements.TOPIC_AUTHOR}<!-- ENDIF --></dt>
-				<!-- IF postrow.RANK_TITLE or postrow.RANK_IMG --><dd>{postrow.RANK_TITLE}<!-- IF postrow.RANK_TITLE and postrow.RANK_IMG --><br /><!-- ENDIF -->{postrow.RANK_IMG}</dd><!-- ENDIF -->
-			
+				<dt style="margin-left:30px; width:auto;">{announcements.S_RANK_TITLE}<br>{announcements.S_RANK_IMG}<br></dt>
+				<dt style="width:auto;">{LAST_VISIT_DATE}<br>
+				{CURRENT_TIME}</dt>
+			<br>
+			<br>
 			</div>
-					<p>{announcements.POST_TEXT}</p><br />
+					<p style="margin-left:15px;">{announcements.POST_TEXT}</p><br />
 					<!--</dt>-->
 				</dl>
 			</li>
