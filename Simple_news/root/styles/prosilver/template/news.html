@@ -1,0 +1,41 @@
+<!-- INCLUDE overall_header.html -->	
+					<!-- BEGIN announcements -->
+<div class="forabg">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="icon">
+					<dt>{L_NEWS_LAST_POST}</dt>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums">
+			<li class="row">
+				<dl>
+					<!--<dt>-->
+					<a href="{announcements.POST_LINK}" class="forumtitle">{announcements.TOPIC_TITLE}</a> por {announcements.TOPIC_AUTHOR} - {announcements.TOPIC_DATE}<br />
+					<div class="postprofile" style="width: 15.4%;">				
+					<!-- IF S_TOPIC_AVATAR -->
+					<dt style="margin-left:20px;">{TOPIC_AVATAR}</dt
+				<!-- ENDIF -->
+				<br>
+				<dt style="margin-left:70px;"><!-- IF not announcements.TOPIC_AUTHOR --><strong>{announcements.TOPIC_AUTHOR}</strong><!-- ELSE -->{announcements.TOPIC_AUTHOR}<!-- ENDIF --></dt>
+				<!-- IF postrow.RANK_TITLE or postrow.RANK_IMG --><dd>{postrow.RANK_TITLE}<!-- IF postrow.RANK_TITLE and postrow.RANK_IMG --><br /><!-- ENDIF -->{postrow.RANK_IMG}</dd><!-- ENDIF -->
+			
+			</div>
+					<p>{announcements.POST_TEXT}</p><br />
+					<!--</dt>-->
+				</dl>
+			</li>
+		</ul>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+					<!-- END announcements -->
+<!--
+		<div id="information" class="rules">
+			<div class="inner"><span class="corners-top"><span></span></span>
+				<strong>{L_NEWS_INFORMATION}:</strong> {L_NEWS_DISABLED}
+			<span class="corners-bottom"><span></span></span></div>
+		</div>
+-->
+    <!-- INCLUDE overall_footer.html -->
