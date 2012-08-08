@@ -143,6 +143,7 @@ $posts_ary = array(
          $topic_author       = get_username_string('full', $posts_row['topic_poster'], $posts_row['topic_first_poster_name'], $posts_row['topic_first_poster_colour']);
          $topic_date       = $user->format_date($posts_row['topic_time']);
          $topic_link       = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $posts_row['forum_id'] . '&amp;t=' . $posts_row['topic_id']);
+		 $topic_link_comment	= append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $posts_row['forum_id'] . '&amp;t=' . $posts_row['topic_id'] . '&amp;t=' . $posts_row['post_id']);
 
          $post_text = nl2br($posts_row['post_text']);
 
@@ -160,6 +161,7 @@ $posts_ary = array(
          'TOPIC_AUTHOR'     => $topic_author,
          'TOPIC_DATE'       => $topic_date,
          'TOPIC_LINK'       => $topic_link,
+		 'TOPIC_LINK_COMMENT'	=> $topic_link_comment,
          'POST_TEXT'        => censor_text($post_text),
 		 'S_RANK_TITLE' 	=> $rank_title,
 		 'S_RANK_IMG' 		=> $rank_image,
@@ -177,7 +179,7 @@ $posts_ary = array(
          'S_TOPIC_AVATAR'           => ($user->data['user_avatar'] != '') ? true : false,
          'TOPIC_AVATAR'         => get_user_avatar($user->data['user_avatar'], $user->data['user_avatar_type'], $user->data['user_avatar_width'], $user->data['user_avatar_height']),
 				));
-        }  
+        }
 page_header('{L_NEWS_TITLE}');
 
     $template->set_filenames(array(
