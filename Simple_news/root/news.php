@@ -27,8 +27,8 @@ $user->setup('mods/news');
     $forum_id = array(2, 5);
     $forum_id_where = create_where_clauses($forum_id, 'forum');
 
-    $topic_id = array(2);
-    $topic_id_where = create_where_clauses($topic_id, 'topic');
+//    $topic_id = array();
+//    $topic_id_where = create_where_clauses($topic_id, 'topic');
 	
 /* create_where_clauses( int[] gen_id, String type )
 * This function outputs an SQL WHERE statement for use when grabbing 
